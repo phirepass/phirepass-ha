@@ -1,4 +1,4 @@
-FROM dimitrmok/phirepass-agent:0.1.138 AS binary
+FROM dimitrmok/phirepass-agent:0.1.139 AS binary
 
 FROM debian:trixie-slim
 
