@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM dimitrmok/phirepass-agent:0.1.147 AS binary
+FROM dimitrmok/phirepass-agent:0.1.149 AS binary
 
 FROM debian:trixie-slim
 
