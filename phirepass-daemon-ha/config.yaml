@@ -14,16 +14,6 @@ schema:
     PORT: int?
     SERVER_HOST: str?
     SERVER_PORT: int?
-    SSH:
-        ACTIVE: bool
-        HOST: str
-        PORT: int
-        USERNAME: str?
-    SFTP:
-        ACTIVE: bool
-        HOST: str
-        PORT: int
-        USERNAME: str?
     PAT_TOKEN: password?
 options:
     APP_MODE: production
@@ -31,16 +21,6 @@ options:
     PORT: 18080
     SERVER_HOST: phirepass.local
     SERVER_PORT: 8080
-    SSH:
-        ACTIVE: false
-        HOST: 0.0.0.0
-        PORT: 22
-        USERNAME: "root"
-    SFTP:
-        ACTIVE: false
-        HOST: 0.0.0.0
-        PORT: 22
-        USERNAME: "root"
     PAT_TOKEN: ""
 required:
     - HOST
