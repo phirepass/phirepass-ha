@@ -1,0 +1,19 @@
+{
+  "path": "/app/settings.json",
+  "services": [
+    {
+      "kind": "SSH",
+      "port": 22,
+      "host": "0.0.0.0",
+      "username": "root",
+      "inactivity_seconds": null
+    },
+    {
+      "kind": "SFTP",
+      "port": 22,
+      "host": "0.0.0.0",
+      "username": "root",
+      "inactivity_seconds": null
+    }
+  ]
+}

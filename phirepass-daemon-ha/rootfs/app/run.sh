@@ -12,21 +12,19 @@ if [ ! -f /etc/ssh/ssh_host_rsa_key ]; then
     ssh-keygen -A
 fi
 
-# Configure SSH for passwordless login
+# Configure SSH for password login
 # Reference: https://github.com/hassio-addons/addon-ssh/blob/v22.0.3/ssh/rootfs/etc/ssh/sshd_config
-echo "Configuring SSH for passwordless root access..."
+echo "Configuring SSH for root password access..."
 
 sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
 sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-sed -i 's/^#PermitEmptyPasswords.*/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
-sed -i 's/^PermitEmptyPasswords.*/PermitEmptyPasswords yes/' /etc/ssh/sshd_config
+sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
 sed -i 's/^#UsePAM.*/UsePAM no/' /etc/ssh/sshd_config
 sed -i 's/^UsePAM.*/UsePAM no/' /etc/ssh/sshd_config
 
-# Set root password to empty
-passwd -d root 2>/dev/null || true
-
-# Note: authorized_keys setup is not required for passwordless login
+# Set root password to 'root'
+echo 'root:root' | chpasswd
 
 # Start SSH server in background
 echo "Starting SSH server on ${SSH_HOST}:${SSH_PORT}..."
@@ -40,4 +38,4 @@ else
     echo "PAT_TOKEN is empty; please provide a token for agent to login."
 fi
 
-exec /app/agent start
+exec /app/agent start --settings-from-file /app/settings.json
