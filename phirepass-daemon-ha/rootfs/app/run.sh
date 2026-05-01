@@ -33,7 +33,7 @@ echo "Starting SSH server on ${SSH_HOST}:${SSH_PORT}..."
 echo "Running phirepass agent..."
 
 if [ -n "${PAT_TOKEN}" ]; then
-    echo "${PAT_TOKEN}" | /app/agent login --from-stdin --server-host "${SERVER_HOST}" --server-port "${SERVER_PORT}"
+    echo "${PAT_TOKEN}" | /app/agent login --from-stdin
 else
     echo "PAT_TOKEN is empty; please provide a token for agent to login."
 fi
