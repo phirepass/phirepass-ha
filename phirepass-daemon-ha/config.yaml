@@ -1,6 +1,6 @@
 name: Phirepass daemon
 description: Phirepass daemon addon for Home Assistant
-version: 1.0.82-230
+version: 1.0.83-231
 slug: phirepass-daemon-ha
 arch:
   - aarch64

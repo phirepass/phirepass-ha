@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM dimitrmok/phirepass-agent:0.1.230 AS binary
+FROM dimitrmok/phirepass-agent:0.1.231 AS binary
 
-FROM dimitrmok/phirepass-base:latest AS base
+FROM dimitrmok/phirepass-base:0.1.231 AS base
 
 COPY rootfs /
 COPY --from=binary /app/agent /app/agent

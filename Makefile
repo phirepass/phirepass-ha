@@ -24,7 +24,7 @@ help:
 build:
 	@echo "Building Docker image: $(IMAGE_NAME):latest"
 	cd phirepass-daemon-ha && \
-	    docker build -t $(IMAGE_NAME):latest .
+	    docker build -t $(IMAGE_NAME):latest --progress=plain .
 	    @echo "✓ Build complete"
 
 run: build
