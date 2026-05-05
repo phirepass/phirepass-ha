@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM --platform=$BUILDPLATFORM dimitrmok/phirepass-agent:0.1.231 AS binary
+FROM dimitrmok/phirepass-agent:0.1.231 AS binary
 
-FROM --platform=$BUILDPLATFORM dimitrmok/phirepass-base:0.1.232 AS base
+FROM dimitrmok/phirepass-base:0.1.232 AS base
 
 COPY rootfs /
 COPY --from=binary /app/agent /app/agent
