@@ -1,0 +1,8 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+*.egg-info
+.env
+.vscode
+.DS_Store
