@@ -2,32 +2,7 @@
 
 FROM dimitrmok/phirepass-agent:0.1.229 AS binary
 
-FROM debian:trixie-slim
-
-RUN apt-get update && apt-get install -y \
-    pkg-config \
-    libssl-dev \
-    openssh-server \
-    htop \
-    btop \
-    locales \
-    gcc-aarch64-linux-gnu \
-    g++-aarch64-linux-gnu \
-    libc6-dev-arm64-cross \
-    build-essential \
-    git \
-    vim \
-    make \
-    cmake \
-    perl \
-    golang \
-    autoconf \
-    ninja-build \
-    curl \
-    jq \
-    sudo \
- && rm -rf /var/lib/apt/lists/* \
- && mkdir -p /var/run/sshd
+FROM dimitrmok/phirepass-base:0.1.229 AS base
 
 COPY rootfs /
 COPY --from=binary /app/agent /app/agent
