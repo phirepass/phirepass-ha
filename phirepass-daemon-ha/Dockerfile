@@ -1,8 +1,8 @@
 # syntax=docker/dockerfile:1
 
-FROM dimitrmok/phirepass-agent:0.1.343 AS binary
+FROM dimitrmok/phirepass-agent:0.1.348 AS binary
 
-FROM dimitrmok/phirepass-base:0.1.343 AS base
+FROM dimitrmok/phirepass-base:0.1.348 AS base
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends nginx && \
