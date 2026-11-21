@@ -1,10 +1,8 @@
 # syntax=docker/dockerfile:1
 
-# The -torrent tag is the agent built with `fetch-torrent`, so torrents can be
-# switched on for this node from the dashboard.
-FROM dimitrmok/phirepass-agent:0.1.358-torrent AS binary
+FROM dimitrmok/phirepass-agent:0.1.362 AS binary
 
-FROM dimitrmok/phirepass-base:0.1.358 AS base
+FROM dimitrmok/phirepass-base:0.1.362 AS base
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends nginx && \
